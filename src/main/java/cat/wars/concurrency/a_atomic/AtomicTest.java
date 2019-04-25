@@ -7,7 +7,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.LongAdder;
 
 /**
  * Created by IntelliJ IDEA.
@@ -20,9 +20,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 @ThreadSafe
 public class AtomicTest {
 
-    private static int threadTotal = 200;
-    private static int clientTotal = 5000;
-    private static AtomicInteger count = new AtomicInteger(0);
+    private final static int threadTotal = 200;
+    private final static int clientTotal = 5000;
+    // private static AtomicLong count = new AtomicLong(0);
+    private static LongAdder count = new LongAdder(); //Initial value is 0
 
     public static void main(String[] args) throws Exception {
         ExecutorService executor = Executors.newCachedThreadPool();
@@ -35,7 +36,7 @@ public class AtomicTest {
                 countDownLatch.await();
                 executor.shutdown();
                 log.info("CountdownLatch count: {}", countDownLatch.getCount());
-                log.info("count: {}", count.get());
+                log.info("count: {}", count.longValue());
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -58,6 +59,6 @@ public class AtomicTest {
     }
 
     private static void add() {
-        count.getAndIncrement();
+        count.increment();
     }
 }
