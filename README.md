@@ -200,3 +200,17 @@ AtomicLongArray through the index operation array
         }
     }
 ```
+
+### Synchronized
+* Code scope
+  * If synchronized(this), not unique: The current instance is valid
+  * If synchronized(A.class), unique: The all instance is valid
+* Function
+  * equals synchronized(this){} this function content
+  * The current instance is valid
+* Static function
+  * equals synchronized(This.class){} this function content
+  * The all instance is valid
+* Class
+  * equals synchronized(This.class){} all function content of this class 
+  * The all instance is valid
