@@ -214,3 +214,67 @@ AtomicLongArray through the index operation array
 * Class
   * equals synchronized(This.class){} all function content of this class 
   * The all instance is valid
+  
+### volatile
+Guaranteed single thread, sequential execution of reads and writes
+1) Wrong usage
+``` java
+    @NotThreadSafe
+    public class VolatileTest {
+
+        private static final int MAX_THREAD = 50;
+        private static final int EXECUTE_COUNT = 5000;
+        private static volatile int count = 0;
+
+        public static void main(String[] args) {
+            CountDownLatch countDownLatch = new CountDownLatch(EXECUTE_COUNT);
+            // Executed out
+            new Thread(() -> {
+                try {
+                    countDownLatch.await();
+                    System.out.println("count: " + count);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+
+            // Executor
+            ExecutorService executor = Executors.newCachedThreadPool();
+            Semaphore semaphore = new Semaphore(MAX_THREAD);
+            for (int i = 0; i < EXECUTE_COUNT; i++) {
+                executor.execute(() -> {
+                    try {
+                        semaphore.acquire();
+                        count++;
+                        semaphore.release();
+                        countDownLatch.countDown();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+        }
+    }
+```
+2) Recommended usage
+``` java
+    public class VolatileTest2 {
+
+        private static volatile boolean semaphore = false;
+
+        public static void main(String[] args) throws InterruptedException {
+            new Thread(() -> {
+                try {
+                    while (!semaphore) Thread.sleep(1000);
+                    System.out.println("Finish");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }).start();
+
+
+            Thread.sleep(10000);
+            semaphore = true;
+        }
+    }
+```
