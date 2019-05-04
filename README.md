@@ -278,3 +278,60 @@ Guaranteed single thread, sequential execution of reads and writes
         }
     }
 ```
+
+### Singleton publish
+1. Dual if lazy mode
+``` java
+    @ThreadSafe
+    public class A_Singleton {
+
+        private volatile static A_Singleton instance;
+
+        private A_Singleton() {
+        }
+
+        public static A_Singleton getInstance() {
+            if (null == instance)
+                synchronized (A_Singleton.class) {
+                    instance = new A_Singleton(); // If no volatile, it may lead to Out-of-order execution initialization
+                }
+
+            return instance;
+        }
+    }
+```
+2. Static scope Hungry mode
+``` java
+    @ThreadSafe
+    public class B {
+
+        private static B instance;
+
+        static {
+            instance = new B();
+        }
+
+        private B() {
+        }
+
+        public static B getInstance() {
+            return instance;
+        }
+    }
+```
+3. Enum mode
+``` java
+    enum E {
+        INSTANCE;
+
+        private C_EnumMode instance;
+
+        E() {
+            instance = new C_EnumMode();
+        }
+
+        public C_EnumMode getInstance() {
+            return instance;
+        }
+    }
+```
