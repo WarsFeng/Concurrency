@@ -2,7 +2,7 @@
 
 ## CountDownLatch
 <details>
-<summary>展开查看</summary>
+<summary>Click me</summary>
 <pre><code>
 
 ``` java
@@ -27,7 +27,7 @@
 
 ## Semaphore
 <details>
-<summary>展开查看</summary>
+<summary>Click me</summary>
 <pre><code>
 
 ``` java
@@ -82,7 +82,7 @@
 
 ## Atomic
 <details>
-<summary>展开查看</summary>
+<summary>Click me</summary>
 <pre><code>
 
 ### AtomicLong and LongAdder
@@ -220,7 +220,7 @@ AtomicLongArray through the index operation array
 
 ## Synchronized
 <details>
-<summary>展开查看</summary>
+<summary>Click me</summary>
 <pre><code>
 
 * Code scope
@@ -240,12 +240,12 @@ AtomicLongArray through the index operation array
   
 ## volatile
 <details>
-<summary>展开查看</summary>
+<summary>Click me</summary>
 
 Guaranteed single thread, sequential execution of reads and writes
 1) Wrong usage
 <details>
-<summary>展开查看</summary>
+<summary>Click me</summary>
 <pre><code>
 
 ``` java
@@ -291,7 +291,7 @@ Guaranteed single thread, sequential execution of reads and writes
 
 2) Recommended usage
 <details>
-<summary>展开查看</summary>
+<summary>Click me</summary>
 <pre><code>
 
 ``` java
@@ -321,11 +321,11 @@ Guaranteed single thread, sequential execution of reads and writes
 
 ## Singleton publish
 <details>
-<summary>展开查看</summary>
+<summary>Click me</summary>
 
 1. Dual if lazy mode
 <details>
-<summary>展开查看</summary>
+<summary>Click me</summary>
 <pre><code>
 
 ``` java
@@ -352,7 +352,7 @@ Guaranteed single thread, sequential execution of reads and writes
 
 2. Static scope Hungry mode
 <details>
-<summary>展开查看</summary>
+<summary>Click me</summary>
 <pre><code>
 
 ``` java
@@ -378,7 +378,7 @@ Guaranteed single thread, sequential execution of reads and writes
 
 3. Enum mode
 <details>
-<summary>展开查看</summary>
+<summary>Click me</summary>
 <pre><code>
 
 ``` java
