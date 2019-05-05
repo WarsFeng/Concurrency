@@ -25,6 +25,38 @@
 </code></pre>
 </details>
 
+## CyclicBarrier
+<details>
+<summary>Click me</summary>
+<pre><code>
+
+``` java
+    public class CyclicBarrierExample {
+
+        private static LongAdder count = new LongAdder();
+        private static ExecutorService executorService = Executors.newFixedThreadPool(5);
+        private static CyclicBarrier cyclicBarrier = new CyclicBarrier(5, () -> System.out.println(count.longValue()));
+
+        public static void main(String[] args) {
+            for (int i = 0; i < 10; i++) {
+                executorService.execute(CyclicBarrierExample::add);
+            }
+            executorService.shutdown();
+        }
+        
+        private static void add() {
+            try {
+                count.increment();
+                cyclicBarrier.await();
+            } catch (InterruptedException | BrokenBarrierException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+```
+</code></pre>
+</details>
+
 ## Semaphore
 <details>
 <summary>Click me</summary>
