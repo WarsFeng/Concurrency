@@ -241,7 +241,6 @@ AtomicLongArray through the index operation array
 ## volatile
 <details>
 <summary>展开查看</summary>
-<pre><code>
 
 Guaranteed single thread, sequential execution of reads and writes
 1) Wrong usage
@@ -318,7 +317,6 @@ Guaranteed single thread, sequential execution of reads and writes
 ```
 </code></pre>
 </details>
-</code></pre>
 </details>
 
 ## Singleton publish
