@@ -3,7 +3,7 @@
 ## CountDownLatch
 <details>
 <summary>展开查看</summary>
-<pre><code>.
+<pre><code>
 
 ``` java
 	CountDownLatch countdownlatch = new CountDownLatch(1); // The difinition count is 1
@@ -26,6 +26,10 @@
 </details>
 
 ## Semaphore
+<details>
+<summary>展开查看</summary>
+<pre><code>
+
 ``` java
     Semaphore semaphore = new Semaphore(5);
     for (int i = 0; i < 5; i++) {
@@ -73,8 +77,13 @@
 	semaphore.acquire(); // Because available semaphore is 0, threa enters await status, until available gt 0
 	System.out.println("END"); // Always not output END
 ```
+</code></pre>
+</details>
 
 ## Atomic
+<details>
+<summary>展开查看</summary>
+<pre><code>
 
 ### AtomicLong and LongAdder
 Jdk8 update LongAdder and DoubleAdder  
@@ -206,8 +215,10 @@ AtomicLongArray through the index operation array
         }
     }
 ```
+</code></pre>
+</details>
 
-### Synchronized
+## Synchronized
 * Code scope
   * If synchronized(this), not unique: The current instance is valid
   * If synchronized(A.class), unique: The all instance is valid
@@ -221,9 +232,13 @@ AtomicLongArray through the index operation array
   * equals synchronized(This.class){} all function content of this class 
   * The all instance is valid
   
-### volatile
+## volatile
 Guaranteed single thread, sequential execution of reads and writes
 1) Wrong usage
+<details>
+<summary>展开查看</summary>
+<pre><code>
+
 ``` java
     @NotThreadSafe
     public class VolatileTest {
@@ -262,7 +277,14 @@ Guaranteed single thread, sequential execution of reads and writes
         }
     }
 ```
+</code></pre>
+</details>
+
 2) Recommended usage
+<details>
+<summary>展开查看</summary>
+<pre><code>
+
 ``` java
     public class VolatileTest2 {
 
@@ -284,9 +306,15 @@ Guaranteed single thread, sequential execution of reads and writes
         }
     }
 ```
+</code></pre>
+</details>
 
-### Singleton publish
+## Singleton publish
 1. Dual if lazy mode
+<details>
+<summary>展开查看</summary>
+<pre><code>
+
 ``` java
     @ThreadSafe
     public class A_Singleton {
@@ -306,7 +334,14 @@ Guaranteed single thread, sequential execution of reads and writes
         }
     }
 ```
+</code></pre>
+</details>
+
 2. Static scope Hungry mode
+<details>
+<summary>展开查看</summary>
+<pre><code>
+
 ``` java
     @ThreadSafe
     public class B {
@@ -325,7 +360,14 @@ Guaranteed single thread, sequential execution of reads and writes
         }
     }
 ```
+</code></pre>
+</details>
+
 3. Enum mode
+<details>
+<summary>展开查看</summary>
+<pre><code>
+
 ``` java
     enum E {
         INSTANCE;
@@ -341,3 +383,6 @@ Guaranteed single thread, sequential execution of reads and writes
         }
     }
 ```
+</code></pre>
+</details>
+
