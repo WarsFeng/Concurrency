@@ -320,6 +320,9 @@ Guaranteed single thread, sequential execution of reads and writes
 </details>
 
 ## Singleton publish
+<details>
+<summary>展开查看</summary>
+
 1. Dual if lazy mode
 <details>
 <summary>展开查看</summary>
@@ -395,4 +398,4 @@ Guaranteed single thread, sequential execution of reads and writes
 ```
 </code></pre>
 </details>
-
+</details>
