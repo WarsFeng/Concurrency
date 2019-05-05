@@ -219,6 +219,10 @@ AtomicLongArray through the index operation array
 </details>
 
 ## Synchronized
+<details>
+<summary>展开查看</summary>
+<pre><code>
+
 * Code scope
   * If synchronized(this), not unique: The current instance is valid
   * If synchronized(A.class), unique: The all instance is valid
@@ -231,8 +235,14 @@ AtomicLongArray through the index operation array
 * Class
   * equals synchronized(This.class){} all function content of this class 
   * The all instance is valid
+</code></pre>
+</details>
   
 ## volatile
+<details>
+<summary>展开查看</summary>
+<pre><code>
+
 Guaranteed single thread, sequential execution of reads and writes
 1) Wrong usage
 <details>
@@ -306,6 +316,8 @@ Guaranteed single thread, sequential execution of reads and writes
         }
     }
 ```
+</code></pre>
+</details>
 </code></pre>
 </details>
 
